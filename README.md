@@ -4,7 +4,7 @@ This repository contains Terraform code to deploy a complete infrastructure for 
 
 ## 🏗️ Architecture
 
-![Azure Architecture](https://via.placeholder.com/800x400?text=Azure+Chatbot+Architecture)
+![Azure Architecture](week5-stage6.5.png)
 
 The infrastructure consists of:
 

@@ -28,6 +28,18 @@ The `compute` module deploys a Virtual Machine Scale Set for application hosting
 
 The `keyvault` module provisions an Azure Key Vault for secure storage of secrets and credentials.
 
+### 📊 Monitoring Module
+
+The `monitoring` module implements comprehensive monitoring and alerting for the infrastructure:
+
+- CPU and memory usage alerts for VMs
+- Database connection and storage alerts
+- Application Gateway health alerts
+- Storage capacity alerts
+- Centralized logging with Log Analytics
+- Application performance monitoring with Application Insights
+- Email and SMS notifications for critical alerts
+
 ## 📝 Module Documentation
 
 Each module has its own README.md file with detailed information about:
@@ -48,6 +60,8 @@ database
   └── keyvault
 storage
   └── keyvault
+monitoring
+  └── (depends on all other modules)
 ```
 
 ## 🛠️ Best Practices

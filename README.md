@@ -1,6 +1,6 @@
 # 🚀 Azure Chatbot Infrastructure as Code (IaC) 🚀
 
-This repository contains Terraform code to deploy a complete infrastructure for a chatbot application on Azure. The infrastructure includes networking, compute, database, storage, and security components.
+This repository contains Terraform code to deploy a complete infrastructure for a chatbot application on Azure. The infrastructure includes networking, compute, database, storage, security, and monitoring components.
 
 ## 🏗️ Architecture
 
@@ -15,6 +15,7 @@ The infrastructure consists of:
 - 💻 **Compute**: Virtual Machine Scale Set for application hosting
 - 🧠 **ChromaDB**: Vector database for AI embeddings
 - 🔐 **Key Vault**: Secure storage for secrets and credentials
+- 📊 **Monitoring**: Azure Monitor alerts, Log Analytics, and Application Insights
 
 ## 📋 Prerequisites
 
@@ -60,6 +61,10 @@ OpenAIkey = "your-openai-key"
 DB-HOST   = "your-psqlflexibleserver.postgres.database.azure.com"
 DB-PORT   = "5432"
 CHROMADB-PORT = "8000"
+
+# Monitoring information
+alert_email = "admin@example.com"
+alert_sms_number = "5551234567"
 ```
 
 ### 3. Initialize Terraform
@@ -102,7 +107,8 @@ terraform output
 │   ├── database/            # PostgreSQL Flexible Server resources
 │   ├── storage/             # Storage Account resources
 │   ├── compute/             # VM and VMSS resources
-│   └── keyvault/            # Key Vault and secrets
+│   ├── keyvault/            # Key Vault and secrets
+│   └── monitoring/          # Monitoring and alerting resources
 └── scripts/                 # Helper scripts
 ```
 
@@ -116,6 +122,18 @@ This repository can be integrated with Azure DevOps or GitHub Actions for contin
 - Network Security Groups restrict access to resources
 - PostgreSQL server is configured with SSL enforcement
 - All resources are deployed in private subnets where possible
+
+## 📊 Monitoring and Alerting
+
+The infrastructure includes comprehensive monitoring and alerting:
+
+- CPU and memory usage alerts for VMs
+- Database connection and storage alerts
+- Application Gateway health alerts
+- Storage capacity alerts
+- Centralized logging with Log Analytics
+- Application performance monitoring with Application Insights
+- Email and SMS notifications for critical alerts
 
 ## 🧹 Cleanup
 

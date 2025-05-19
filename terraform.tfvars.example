@@ -28,3 +28,9 @@ ket-vault-name       = "your-keyvault-name"
 OpenAIkey            = "your-openai-key"  # Consider using environment variables instead
 DB-HOST              = "your-psqlflexibleserver.postgres.database.azure.com"
 CHROMADB-PORT        = "8000"
+
+# Monitoring Configuration
+alert_email          = "admin@example.com"
+alert_sms_number     = "5551234567"
+memory_threshold_bytes = 1073741824  # 1GB
+storage_capacity_threshold_bytes = 85899345920  # 80GB

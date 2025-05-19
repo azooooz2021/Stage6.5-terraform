@@ -29,3 +29,19 @@ output "application_gateway_ip" {
 output "chromadb_ip" {
   value = module.compute.chromadb_public_ip
 }
+
+# Monitoring outputs
+output "log_analytics_workspace_id" {
+  value = module.monitoring.log_analytics_workspace_id
+  description = "ID of the Log Analytics Workspace"
+}
+
+output "application_insights_id" {
+  value = module.monitoring.application_insights_id
+  description = "ID of the Application Insights resource"
+}
+
+output "action_group_id" {
+  value = module.monitoring.action_group_id
+  description = "ID of the monitoring action group"
+}

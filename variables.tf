@@ -40,6 +40,31 @@ variable "subnet_name" {
 }
 
 #########################################
+# Monitoring information
+#########################################
+variable "alert_email" {
+  description = "Email address for alert notifications"
+  type        = string
+}
+
+variable "alert_sms_number" {
+  description = "Phone number for SMS alerts"
+  type        = string
+}
+
+variable "memory_threshold_bytes" {
+  description = "Memory threshold in bytes for VM alerts"
+  type        = number
+  default     = 1073741824  # 1GB as default
+}
+
+variable "storage_capacity_threshold_bytes" {
+  description = "Storage capacity threshold in bytes"
+  type        = number
+  default     = 85899345920  # 80GB as default
+}
+
+#########################################
 #image information
 #########################################
 

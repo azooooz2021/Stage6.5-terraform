@@ -134,6 +134,35 @@ module "keyvault" {
   ]
 }
 
+# Monitoring Module
+module "monitoring" {
+  source              = "./modules/monitoring"
+  prefix              = var.prefix
+  location            = var.location
+  resource_group_name = azurerm_resource_group.main.name
+  
+  # Resource IDs for monitoring
+  vmss_id             = module.compute.vmss_id
+  postgresql_server_id = module.database.postgresql_server_id
+  appgw_id            = module.appgw.application_gateway_id
+  storage_account_id  = module.storage.storage_account_id
+  key_vault_id        = module.keyvault.key_vault_id
+  
+  # Alert configuration
+  alert_email         = var.alert_email
+  alert_sms_number    = var.alert_sms_number
+  memory_threshold_bytes = var.memory_threshold_bytes
+  storage_capacity_threshold_bytes = var.storage_capacity_threshold_bytes
+
+  depends_on = [
+    module.compute,
+    module.database,
+    module.appgw,
+    module.storage,
+    module.keyvault
+  ]
+}
+
 # Add VMSS access policy to Key Vault after VMSS is created
 resource "azurerm_key_vault_access_policy" "vmss_policy" {
   key_vault_id = module.keyvault.key_vault_id

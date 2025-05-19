@@ -1,0 +1,30 @@
+# Azure Subscription Details
+subscription_id     = "your-subscription-id"
+prefix              = "your-prefix"
+location            = "uaenorth"
+resource_group_name = "your-resource-group"
+
+# Compute Configuration
+vm_size             = "Standard_D4s_v4"
+vnet_name           = "your-vnet-name"
+
+# Shared Image Gallery Configuration
+sig_image_id        = "/subscriptions/your-subscription-id/resourceGroups/your-image-rg/providers/Microsoft.Compute/galleries/your-gallery/images/your-image-definition/versions/1.0.0"
+sig_image_version   = "1.0.0"
+
+# Storage Configuration
+storage_account_name = "yourstorageaccount"
+
+# Database Configuration
+admin_username       = "your-admin-username"
+admin_password       = "your-secure-password"  # Consider using environment variables instead
+DB-name              = "postgres"
+DB-host              = "your-psqlflexibleserver.postgres.database.azure.com"
+postgres_server_name = "your-psqlflexibleserver"
+DB-PORT              = "5432"
+
+# Key Vault Configuration
+ket-vault-name       = "your-keyvault-name"
+OpenAIkey            = "your-openai-key"  # Consider using environment variables instead
+DB-HOST              = "your-psqlflexibleserver.postgres.database.azure.com"
+CHROMADB-PORT        = "8000"

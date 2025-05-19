@@ -1,0 +1,39 @@
+name: 'Dependency Updates'
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'  # Run every Monday at 8 AM
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  terraform-update:
+    name: 'Update Terraform Dependencies'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.5.0
+        
+    - name: Terraform Init
+      run: terraform init
+      
+    - name: Update Terraform Dependencies
+      run: terraform providers lock -platform=linux_amd64 -platform=darwin_amd64 -platform=windows_amd64
+      
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: 'chore: update terraform provider dependencies'
+        title: 'chore: update terraform provider dependencies'
+        body: |
+          This PR updates the Terraform provider dependencies to their latest versions.
+          
+          This is an automated PR created by the dependency-update workflow.
+        branch: dependency-updates
+        base: main

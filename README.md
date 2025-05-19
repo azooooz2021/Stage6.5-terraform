@@ -4,7 +4,7 @@ This repository contains Terraform code to deploy a complete infrastructure for 
 
 ## 🏗️ Architecture
 
-![Azure Architecture](week5-stage6.5.png)
+![Azure Architecture](stage6.5-terraform .png)
 
 The infrastructure consists of:
 
